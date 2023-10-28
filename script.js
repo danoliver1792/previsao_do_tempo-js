@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // obtendo uma referência ao elemento HTML com o ID "weatherInfo" para exibir a previsão do tempo
     const weatherInfo = document.getElementById("weatherInfo");
 
+    const getWeatherButton = document.getElementById("getWeather");
+
     // obtendo uma referência ao botão HTML com o ID "getWeather" para iniciar a busca do clima
     getWeatherButton.addEventListener("click", () => {
         // obtendo o valor inserdio pelo usuário no campo de entrada da cidade
@@ -33,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // verificando resposta da API e extraindo a temperatura, descrição do clima e nome da cidade
             if (data.cod === 200) {
-                const temperature = data.main.temp;
+                const temperature = Math.round(data.main.temp);
                 const description = data.weather[0].description;
                 const cityName = data.name;
 
